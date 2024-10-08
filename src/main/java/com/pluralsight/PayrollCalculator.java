@@ -8,7 +8,7 @@ public class PayrollCalculator {
         BufferedReader reader;
 
         try {
-
+            
             reader = new BufferedReader(new FileReader("Mod01/employees.csv"));
             String line;
 
@@ -30,13 +30,14 @@ public class PayrollCalculator {
                 Employee employee = new Employee(employeeId, name, hoursWorked, payRate);
 
 
-                employee.displayEmployeeInfo();
+                System.out.printf("ID: %d, Name: %s, Gross Pay: $%.2f\n",
+                        employee.getEmployeeId(), employee.getName(), employee.getGrossPay());
             }
+
+
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (NumberFormatException e) {
-            System.out.println("Error parsing the file: " + e.getMessage());
         }
     }
 }
